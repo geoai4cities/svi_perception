@@ -1,0 +1,104 @@
+# Feature Importance Analysis Configuration
+# This configuration file defines the experiment setup for feature importance analysis
+
+# Experiment metadata
+experiment:
+  name: "perception_feature_importance"
+  description: "Feature importance analysis for urban perception prediction"
+  version: "1.0"
+  author: "GeoAI4Cities Research Team"
+
+# Data configuration
+data:
+  input_dir: "../Input_Data/cnn" 
+  feature_count: 36  # 36 features + rating_score column (env FEATURE_COUNT overrides; else this value is used)
+  random_state: 42
+  test_size: 0.2  # IGNORED when test_city_name is specified - only used as fallback for last-N split
+  # City-based split: ALL samples from specified city become test set, ALL other cities become training pool
+  # test_city_name precedence: env TEST_CITY_NAME > config test_city_name
+  test_city_name: "Paris"  # Uses ALL Paris samples as test set (not 20%)
+  
+# Perceptions and their optimal configurations
+perceptions:
+  beautiful:
+    model: "realmlp_td"
+    delta: 1.8
+    enabled: true
+    
+  lively:
+    model: "random_forest" 
+    delta: 1.8
+    enabled: true
+    
+  boring:
+    model: "svm"
+    delta: 1.6
+    enabled: true
+    
+  safe:
+    model: "xgboost"
+    delta: 1.8
+    enabled: true
+
+# Model configurations
+models:
+  random_forest:
+    enabled: true
+    parameters:
+      n_estimators: 1000
+      max_depth: 20
+      min_samples_split: 2
+      min_samples_leaf: 1
+      random_state: 42
+      n_jobs: -1
+      
+  xgboost:
+    enabled: true
+    parameters:
+      n_estimators: 800
+      max_depth: 6
+      learning_rate: 0.1
+      subsample: 1.0
+      random_state: 42
+      n_jobs: -1
+      eval_metric: "logloss"
+      
+  realmlp_td:
+    enabled: true
+    parameters:
+      random_state: 42
+      n_cv: 1
+      device: "cuda:0"  # GPU device: "cuda", "cuda:0", "cuda:1", or "cpu"
+  
+  svm:
+    enabled: true
+    parameters:
+      C: 1.0
+      gamma: "scale"
+      kernel: "rbf"
+      probability: true
+      
+  realmlp_hpo:
+    enabled: false
+    parameters:
+      random_state: 42
+      n_hyperopt_steps: 50
+
+# Feature importance analysis settings
+analysis:
+  method: "permutation_importance"
+  n_repeats: 30
+  significance_level: 0.05
+  performance_metric: "f1"
+  top_features: 10
+
+# Output configuration
+output:
+  base_dir: "outputs/cnn/Paris"  # Main output directory
+  results_dir: "results"                           # Results subdirectory
+  models_dir: "saved_models"                       # Models subdirectory
+  logs_dir: "logs"                                 # Logs subdirectory
+  report_format: "markdown"
+  visualization_formats: ["png", "pdf", "svg"]
+  figure_dpi: 300
+  # Structure: outputs/feature_importance_analysis/{results,models,logs}/
