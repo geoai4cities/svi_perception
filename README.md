@@ -130,6 +130,6 @@ MIT License - see [LICENSE](LICENSE) file.
 
 ## Contact
 
-- **Email**: pyarelal@iiserb.ac.in
+- **Email**: pyare22@iiserb.ac.in
 - **Lab**: [GeoAI4Cities](https://geoai4cities.com/)
 - **Paper**: [ScienceDirect](https://www.sciencedirect.com/science/article/pii/S1569843225005795)
