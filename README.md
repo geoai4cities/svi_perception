@@ -110,19 +110,6 @@ Results saved in `experiments/<dataset>/<city>/`:
 - [docs/PIPELINE.md](docs/PIPELINE.md) - Complete pipeline details
 - [docs/FEATURE_EXTRACTION.md](docs/FEATURE_EXTRACTION.md) - Feature extraction guide
 
-## Citation
-
-```bibtex
-@article{chauhan2025data,
-  title={A Data-Driven framework for pedestrian oriented route planning leveraging deep learning and spatial perception},
-  author={Chauhan, Pyare Lal and Baswal, Tanishq Kumar and Kumar, Vaibhav},
-  journal={International Journal of Applied Earth Observation and Geoinformation},
-  volume={144},
-  pages={104932},
-  year={2025},
-  publisher={Elsevier}
-}
-```
 
 ## License
 
