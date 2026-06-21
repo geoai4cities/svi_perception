@@ -1,7 +1,7 @@
 # A Data-Driven Framework for Pedestrian Oriented Route Planning Leveraging Deep Learning and Spatial Perception
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: Non-Commercial](https://img.shields.io/badge/License-Non--Commercial-red.svg)](LICENSE)
 [![Paper](https://img.shields.io/badge/Paper-ScienceDirect-green.svg)](https://www.sciencedirect.com/science/article/pii/S1569843225005795)
 
 **Official Implementation**
@@ -113,7 +113,7 @@ Results saved in `experiments/<dataset>/<city>/`:
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) file.
+Non-commercial / academic use only, under the PolyForm Noncommercial License 1.0.0 — see [LICENSE](LICENSE).
 
 ## Contact
 
